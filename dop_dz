@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+public class dz_3_1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList <Integer> list_ = new ArrayList<>();
+        String vvod;
+        while (true) {
+            System.out.print("Введите элемент массива: ");
+            vvod = sc.next();
+            if (vvod.equals("quit"))
+                break;
+            else {
+                try {
+                    int i = Integer.parseInt(vvod.trim());
+                    list_.add(i);
+                } catch (NumberFormatException nfe) {
+                    System.out.println("Нужно ввести или число или 'quit'");
+                }
+            }
+        }
+        ArrayList <Double> list_new = new ArrayList<>();
+        double sum_ = 0;
+        System.out.print("Исходный массив: ");
+        for (int i = 0; i < list_.size(); i++) {
+            System.out.print(list_.get(i) + " ");
+            sum_ += list_.get(i);
+            list_new.add(sum_ / (i + 1));
+        }
+        System.out.println();
+        System.out.print("Массив после обработки: ");
+        for (double i: list_new) {
+            System.out.print(i + " ");
+        }
+    }
+}
